@@ -1,0 +1,26 @@
+{
+	// Modifications to the default values and values provided in in the "@tsconfig/node18/tsconfig"
+	// configuration.
+	"compilerOptions": {
+		// https://www.typescriptlang.org/tsconfig#composite enforces constraints that
+		// make it easier for build tools to determine if a project has already been built
+		"composite": true,
+		// https://www.typescriptlang.org/tsconfig#outDir - destination for compiled files
+		"outDir": "dist",
+		// https://www.typescriptlang.org/tsconfig#noFallthroughCasesInSwitch - default is false
+		"noFallthroughCasesInSwitch": true,
+		// https://www.typescriptlang.org/tsconfig#noImplicitReturns - default is false
+		"noImplicitReturns": true,
+		// https://www.typescriptlang.org/tsconfig#noUnusedLocals - default is false
+		"noUnusedParameters": true,
+		// https://www.typescriptlang.org/tsconfig#sourceMap - generate source maps
+		"sourceMap": true
+	},
+	// https://www.typescriptlang.org/tsconfig#extends - file to inherit from. Visual Studio Code
+	// doesn't like having '.json' as the file extension. This is the standard configuration
+	// for node18.
+	"extends": "@tsconfig/node18/tsconfig",
+	// "extends": "@tsconfig/node18/",
+	// https://www.typescriptlang.org/tsconfig#files - files to compile
+	"include": ["src/**/*.ts"]
+}

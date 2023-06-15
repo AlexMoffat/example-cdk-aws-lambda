@@ -1,0 +1,7 @@
+# Only the values that differ from the defaults.
+# I think 80 leads to lines that are too short.
+printWidth: 100
+# https://prettier.io/docs/en/options.html#quotes
+singleQuote: true
+# https://prettier.io/docs/en/options.html#trailing-commas
+trailingComma: "all"

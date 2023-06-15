@@ -1,0 +1,46 @@
+{
+    "name": "example-lambda",
+    "author": "alex.moffat@gmail.com",
+    "license": "MIT",
+    "version": "1.0.0",
+    "packageManager": "yarn@3.6.0",
+    "engines": {
+        "node": "^18.16.0",
+        "npm": "^9.6.7"
+    },
+    "scripts": {
+        "app": "node dist/src/cdk/app.js",
+        "build": "yarn clean && tsc && webpack && yarn zip",
+        "clean": "rm -rf build dist cdk.out",
+        "deploy": "cdk deploy",
+        "destroy": "cdk destroy",
+        "diff": "cdk diff",
+        "format": "prettier --write --config .prettierrc.yml 'src/**/*.ts'",
+        "lint": "eslint .",
+        "synth": "cdk synth",
+        "tsc": "tsc",
+        "webpack": "webpack",
+        "zip": "zip -r -j build/index.zip build/index.js build/index.js.map"
+    },
+    "devDependencies": {
+        "@tsconfig/node18": "^2.0.0",
+        "@types/aws-lambda": "^8.10.115",
+        "@types/node": "^20.1.1",
+        "@typescript-eslint/eslint-plugin": "^5.59.9",
+        "@typescript-eslint/parser": "^5.59.9",
+        "aws-cdk": "^2.83.1",
+        "eslint": "^8.40.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "prettier": "^2.8.8",
+        "source-map-loader": "^4.0.1",
+        "typescript": "^5.0.4",
+        "webpack": "^5.82.1",
+        "webpack-cli": "^5.1.1"
+    },
+    "dependencies": {
+        "aws-cdk-lib": "^2.78.0",
+        "constructs": "^10.2.18",
+        "source-map-support": "^0.5.21"
+    }
+}

@@ -10,7 +10,15 @@ dependencies on `jest` or similar.
 
 The `handler` function exported by [index.ts](src/main/index.ts) is the handler
 property configured in [lambda.ts](src/cdk/lambda.ts). Invoking the Lambda calls
-the function.
+the function. 
+
+lambda.ts uses the CDK `Function` class. This can be used for any supported
+language but here for the NODEJS_18_X runtime the source is JavaScript bundled
+into a zip file by the project's build process. The `NodejsFunction` class is an
+alternative. This is specialized for creating functions for the NODEJS runtimes
+and will handle transpiling and bundling internally. However, it requires docker
+to execute so I choose not to use it. An example is shown at the [end of the
+README](#example-nodejsfunction).
 
 In outline the build process is
 
@@ -154,3 +162,24 @@ Run webpack.
 
 Take the output from webpack and create the zip file that the `app.ts` expects.
 If you don't have a zip file synth, diff and deploy won't work.
+
+## Example NodejsFunction
+
+```typescript
+    // Use the `NodejsFunction` to define effectively the same function but
+    // using the process built into the CDK to create and package the JavaScript
+    // starting from the TypeScript.
+    new NodejsFunction(this, 'NodejsFunction', {
+      runtime: Runtime.NODEJS_18_X,
+      architecture: Architecture.ARM_64,
+      bundling: {
+        minify: true,
+        sourceMap: true,
+      },
+      environment: {
+        NODE_OPTIONS: '--enable-source-maps',
+      },
+      entry: './src/main/index.ts',
+      handler: 'handler',
+    });
+```

@@ -20,7 +20,6 @@
 	// doesn't like having '.json' as the file extension. This is the standard configuration
 	// for node18.
 	"extends": "@tsconfig/node18/tsconfig",
-	// "extends": "@tsconfig/node18/",
 	// https://www.typescriptlang.org/tsconfig#files - files to compile
 	"include": ["src/**/*.ts"]
 }

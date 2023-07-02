@@ -1,7 +1,7 @@
-import { Context, APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
+import { Context, APIGatewayProxyResult, APIGatewayProxyEvent } from 'aws-lambda';
 
 export const handler = async (
-  event: APIGatewayEvent,
+  event: APIGatewayProxyEvent,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _: Context,
   // eslint-disable-next-line  @typescript-eslint/require-await
